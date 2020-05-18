@@ -32,13 +32,13 @@ clean-test:
 	rm -fr htmlcov/
 
 deps: .venv
-	. .venv/bin/activate && pip install -U -r requirements.txt -t ./src/libs
+	. .venv/bin/activate && pip install -U -r requirements.txt -t ./src
 
 dev_deps: .venv
 	. .venv/bin/activate && pip install -U -r dev_requirements.txt
 
 lint:
-	. .venv/bin/activate && pylint -r n src/main.py src/shared src/jobs tests
+	. .venv/bin/activate && pylint -r n src/main.py src/utils.py
 
 test:
 	. .venv/bin/activate && nosetests ./tests/* --config=.noserc
@@ -46,5 +46,4 @@ test:
 build: clean
 	mkdir ./dist
 	cp ./src/main.py ./dist
-	cd ./src && zip -x main.py -x \*libs\* -r ../dist/jobs.zip .
-	cd ./src/libs && zip -r ../../dist/libs.zip .
+	cd ./src && zip -x main.py -r ../dist/mods.zip .

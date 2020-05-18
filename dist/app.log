@@ -1,5 +1,0 @@
-__main__ - INFO - Hello World!
-__main__ - INFO - This will get logged to a file
-utils.find_count - INFO - generating count
-utils.find_count - INFO - inp is 2
-__main__ - INFO - count of dataframe is 1512
